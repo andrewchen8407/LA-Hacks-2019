@@ -4,7 +4,8 @@ import json
 import ssl
 import urllib.parse
 import urllib.request
-
+from human import Human
+import random
 global nessie
 nessie = None
 account_dict = None
@@ -21,11 +22,13 @@ def get_json() -> list:
         global nessie
         global account_dict
         nessie = json.loads(json_array)
-        print(nessie)
         names_and_ids = list(zip(get_ids(),get_names()))
-        print(names_and_ids)
-        account_dict = {k:(v,0) for k,v in names_and_ids}
-        print(account_dict.values())
+        account_dict = {k:(v,0, Human(k,v,1000,100,100,100,100)) for k,v in names_and_ids}
+        for k in account_dict:
+            account_dict[k][2].set_health(random.randint(50,100))
+            account_dict[k][2].set_luxury(random.randint(5, 25))
+            account_dict[k][2].set_entertainment(random.randint(30, 50))
+            account_dict[k][2].set_food(random.randint(30, 80))
 
         # url = "http://api.reimaginebanking.com/customers?key=d82c21942a5a727b975804aa4e8d7155"
         # json_array = response.read()
@@ -144,9 +147,3 @@ def set_balance(pin, amount):
 #
 # class InvalidTimePeriodError(Exception):
 #     pass
-if __name__ == '__main__':
-    get_json()
-    print(get_names(), get_ids())
-    set_balance('5c9f001f322fa06b67794981', 10)
-    set_balance('5c9f001f322fa06b67781', 10)
-    print(account_dict.values())
