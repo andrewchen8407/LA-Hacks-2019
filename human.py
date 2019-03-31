@@ -9,7 +9,7 @@ class Human:
         self._luxury = luxury
         self.alive = alive
     def set_health(self, health):
-        self._health = health
+        self._health = int(health)
         if health > 100:
             self._health = 100
         if health < 0:
@@ -17,7 +17,7 @@ class Human:
     def get_health(self):
         return self._health
     def set_entertainment(self, entertainment):
-        self._entertainment = entertainment
+        self._entertainment = int(entertainment)
         if entertainment > 100:
             self._entertainment = 100
         if entertainment < 0:
@@ -25,18 +25,18 @@ class Human:
     def get_entertainment(self):
         return self._entertainment
     def set_food(self, food):
-        self._food = food
-        if food >100:
+        self._food = int(food)
+        if food > 100:
             self._food = 100
-        if food <0:
+        if food < 0:
             self._food = 0
     def get_food(self):
         return self._food
     def set_luxury(self, luxury):
-        self._luxury = luxury
-        if luxury >100:
+        self._luxury = int(luxury)
+        if luxury > 100:
             self._luxury = 100
-        if luxury <0:
+        if luxury < 0:
             self._luxury = 0
     def get_luxury(self):
         return self._luxury
