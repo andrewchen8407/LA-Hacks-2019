@@ -10,7 +10,6 @@ global nessie
 nessie = None
 account_dict = None
 
-
 def get_json() -> list:
     response = None
 
