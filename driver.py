@@ -49,8 +49,21 @@ class StartPage(tk.Frame):
         global nameDict
         tk.Frame.__init__(self, parent)
         self.controller = controller
-        label = tk.Label(self, text="Got Finance?", font=controller.title_font)
+        label = tk.Label(self, text="Got Finance?", font=('Times', 60, 'bold italic'), fg = 'gold')
+
         label.pack(side="top", fill="x", pady=10)
+        label2 = tk.Label(self, text="This app is a simultation of a real-life situation in which one must economize properly.")
+        label2.pack(side="top", fill="x")
+        label3 = tk.Label(self,
+                          text="Choose a character and buy goods to keep their attributes at healthy limits.")
+        label3.pack(side="top", fill="x", pady=10)
+        label4 = tk.Label(self,
+                          text="Being in debt (having a negative account balance) or exhausting all account balance money")
+        label4.pack(side="top", fill="x")
+        label5 = tk.Label(self,
+                          text="while having attributes at unhealthy levels causes one to \'die\'.")
+        label5.pack(side="top", fill="x", pady=10)
+
         data.get_json()
         nameDict = {v[0]:v[2] for k,v in data.account_dict.items()}
         names = Combobox(self, values = [v[0] for v in data.account_dict.values()])
@@ -66,6 +79,10 @@ class StartPage(tk.Frame):
         button2 = tk.Button(self, text = "Check Financial News", command = lambda: controller.show_frame("PageThree"))
         button2.pack()
 
+        comic_photo = PhotoImage(file="comic.png")
+        self.comic_lab = Label(self, image=comic_photo)
+        self.comic_lab.image = comic_photo
+        self.comic_lab.pack(pady=5)
 
 class PageOne(tk.Frame):
     def __init__(self, parent, controller):
@@ -73,6 +90,24 @@ class PageOne(tk.Frame):
         self.controller = controller
         self.label = tk.Label(self, text="Play Now", font=controller.title_font)
         self.label.pack(side="top", fill="x", pady=100)
+
+        # frames = [PhotoImage(file='kickassfinance.gif', format='gif -index %i' % (i)) for i in range(28)]
+        #
+        # def update(ind):
+        #     frame = frames[ind]
+        #     ind += 1
+        #     label.configure(image=frame)
+        #     self.after(28, update, ind)
+        #
+        # label = Label(self)
+        # label.pack()
+        # self.after(0, update, 0)
+        # self.mainloop()
+
+        # kickass_gif = PhotoImage(file="kickassfinance.gif", format="gif -index 2")
+        # kickass_lab = Label(image=kickass_gif)
+        # kickass_lab.image = kickass_gif  # keep a reference!
+
         #health labels
         tk.Label(self, text='Health', anchor='w', fg = "blue", font = ("Times", "20", 'bold')).pack(fill='both')
         self.health_lab = tk.Label(self, text='0', anchor='w', fg = "red")
