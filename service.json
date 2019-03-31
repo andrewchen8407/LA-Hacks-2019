@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "glassy-landing-220516",
+  "private_key_id": "f96083e4fb97b1e235ff2b20718536ea6cbef942",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDEizPpdliNVSG9\nHPH1bH6ZxGPUYKAdLxfoBvp8a5LbibdnB0iLnQp4f528JMiS8OIwqgQM1tqyl4f9\nxV84NXDiXvEjU+OEu1NpTU06nHQrJAd3NAkY14ra4BVDer6pvU9dSaNSZ6fm0n9Y\n8jv70LjQx/oTSpZJafhjnVFYta7eORvPjBKFEsiEgYMCY1RctHcZ2YiiBvfs/K0Y\ncf1/t/qWO3PwDT1GYymfj33X9gLJsqTcd/FfYGOuo2+4ZtZDLFduGF9e4iMzR9wN\nYOaPLzUrdi3POs+npXw5ZCWMtjkfG3ZX2Qv00pm3JbkiHFKjqe1H/7nzavQq82EQ\nPJWPdxulAgMBAAECggEADHshhAsXovv7vUBkDheCb53U0BUFveyyajHdQL7tD8Nu\nUdzYysLhehbyi5LTaN9iob/+K1mOgEZWpLMesZlVLo7kZb+rRE/IA3kc9SKfzuiG\nD9gOVtVDNFSEDSmzh2Bl9JDbTf2WoDYQT7PsQri1r85vLz/ujMFtvFeuZYF+Fg7y\nVSHkv7VLA54fjgg7rg8KjBx5qWD3GMfRU1QDL5K1KCFrHcVJ2idXkMp4JCgS6kP8\n1pncHFVcEc/D7EJAFlE8BcuUaBhZp1+kxFQNouYmMokluDIhgu1UAmt5g5yHsIX/\nUTNEz89O7DeVuJr6tc+FaEYFErqBsbUEOBSQmzexGQKBgQDqFEAM7ayJREOHKwBc\nqlV0HlmKm7noYBaqNeb3ozqR0ZVutt4mqWNit7H3S9+zUXdhnhlWhqA6VPEowT0b\nq6StmS3r8KncNyiKSF5qHYjq4QdYWMosJ90E+dUicJelIMlLkom4k+y80updJ/+Z\n3dtuoAEvoRFzraKTeZStW5JtOQKBgQDW8xcg2cDnJ7CtwccolNDtKrWhPep9AyV0\neW2SqIifBE82AbCoM6WZ9m0hgUs445eh/5GCRqEah9s67EO+J82k0QyzdFMU2oyG\nv77+XIh/LiGerhJrXYfKC1nOzbAs3UMHhvoZadcxdFMbYIigTbhGeiQiSeMArxjc\npzNgFrfNzQKBgQDbvDC4MjDCFqvRakOHuXpIa+kgXbkx82mzVLBBjSABHJ5LdSyr\nXF1ooQpWHAqd2X7Yy0H74JruxygvWt8TZ5hKQj5CewPpLnpG/VJsCNerrZxoickX\nlEA9WI2EK++e2l08LQ5Nj8cvJktNMawWc5Z2jYsve+LXFYtFJ1+zMQAOuQKBgB0G\nwq7K+QO+FlvAeTZ/sh70z4YwqEOtcxdhdmyBmcFvgYrXe5WbM9ewsVf+77uE8GsN\n6gZfp02/3tj8IsHA+kIxgLeTE80THjrsFcyfjkcuYZfeBdq9zKJ6GeyVVh8Y2f5g\nOdHIuyiQftCJnqmXFTVfNRX0SFVFT+QsKAHnz3ZZAoGAbz16qQ2A1pQpMHCBKu5I\nOCxoD71hRbGgrkrG1UDz5mnexmZyVZqEUadfDUpIPRWra5SHmgrwxeLrlA2W25cL\n7GBRcQK2HD+y440UtEpmrsGzvdtG/qECAR5ynXTUC9ehac6VyEAyu75Q3j0+6QBt\nM/fOSwvFNJZFglwyCbzlyvY=\n-----END PRIVATE KEY-----\n",
+  "client_email": "lahacks2019@glassy-landing-220516.iam.gserviceaccount.com",
+  "client_id": "117778326723119291617",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/lahacks2019%40glassy-landing-220516.iam.gserviceaccount.com"
+}
