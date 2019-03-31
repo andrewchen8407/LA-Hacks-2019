@@ -1,14 +1,14 @@
 from tkinter import *
 from tkinter.ttk import *
 import data
-import process
-import human
+# import process
+# import human
 import tkinter as tk
 from tkinter import font as tkfont
-from tkinter import ttk
-import threading
-
-
+# from tkinter import ttk
+# import threading
+import webbrowser
+from pydub import AudioSegment
 
 class LAHacks2019(tk.Tk):
     nameDict = None
@@ -58,7 +58,8 @@ class StartPage(tk.Frame):
         def show_page_one():
             name = names.get()
             controller.frames["PageOne"].set_vals(name)
-            controller.show_frame("PageOne")
+            if name!= "":
+                controller.show_frame("PageOne")
         button1 = tk.Button(self, text="Check Health",
                             command=lambda: show_page_one())
         button1.pack()
@@ -73,34 +74,34 @@ class PageOne(tk.Frame):
         self.label = tk.Label(self, text="Play Now", font=controller.title_font)
         self.label.pack(side="top", fill="x", pady=100)
         #health labels
-        tk.Label(self, text='Health', anchor='w', fg = "blue").pack(fill='both')
+        tk.Label(self, text='Health', anchor='w', fg = "blue", font = ("Times", "20", 'bold')).pack(fill='both')
         self.health_lab = tk.Label(self, text='0', anchor='w', fg = "red")
         self.health_lab.pack(fill="both")
         # self.health_prog = ttk.Progressbar(self, orient="horizontal",
         #                            length=200, mode="determinate", maximum = 200,  variable=self.val)
         # self.health_prog.pack()
-        tk.Label(self, text='Entertainment', anchor='w', fg="pink").pack(fill='both')
+        tk.Label(self, text='Entertainment', anchor='w', fg="pink", font = ("Times", "20", 'bold')).pack(fill='both')
         self.entertainment_lab = tk.Label(self, text='0', anchor='w', fg="red")
         self.entertainment_lab.pack(fill="both")
         # self.entertain_prog = ttk.Progressbar(self.root, orient="horizontal",
         #                            length=200, mode="determinate", maximum = 200)
         # self.entertain_prog.pack()
-        tk.Label(self, text='Food', anchor='w', fg="orange").pack(fill='both')
+        tk.Label(self, text='Food', anchor='w', fg="orange", font = ("Times", "20", 'bold')).pack(fill='both')
         self.food_lab = tk.Label(self, text='0', anchor='w', fg="red")
         self.food_lab.pack(fill="both")
         # self.food_prog = ttk.Progressbar(self.root2, orient="horizontal",
         #                            length=200, mode="determinate", maximum = 200,  variable=self.val)
         # self.food_prog.pack()
-        tk.Label(self, text='Luxury', anchor='w', fg="purple").pack(fill='both')
+        tk.Label(self, text='Luxury', anchor='w', fg="purple", font = ("Times", "20", 'bold')).pack(fill='both')
         self.luxury_lab = tk.Label(self, text='0', anchor='w', fg="red")
         self.luxury_lab.pack(fill="both")
         # self.luxury_prog = ttk.Progressbar(self.root, orient="horizontal",
         #                            length=200, mode="determinate", maximum = 200,  variable=self.val)
         # self.luxury_prog.pack()
-        tk.Label(self, text='Balance', anchor='w', fg="purple").pack(fill='both')
+        tk.Label(self, text='Balance', anchor='w', fg="gold", font = ("Times", "20", 'bold')).pack(fill='both')
         self.balance_lab = tk.Label(self, text='0', anchor='w', fg="black")
         self.balance_lab.pack(fill="both")
-        tk.Label(self, text='Status', anchor='w', fg="purple").pack(fill='both')
+        tk.Label(self, text='Status', anchor='w', fg="silver", font = ("Times", "20", 'bold')).pack(fill='both')
         self.status_lab = tk.Label(self, text='N/A', anchor='w', fg="black")
         self.status_lab.pack(fill="both")
         self.button = tk.Button(self, text="Go to the start page",
@@ -115,42 +116,42 @@ class PageOne(tk.Frame):
         n = ["red", "yellow", "green"]
         self.my_name = name
         if name in nameDict:
-            self.label.config(text = "Welcome Back " + name +"!")
+            self.label.config(text = "Welcome back, " + name +"!", font = ('Arial', 50))
             self.health_lab.config(text=str(nameDict[name].get_health()))
             self.entertainment_lab.config(text=str(nameDict[name].get_entertainment()))
             self.food_lab.config(text=str(nameDict[name].get_food()))
             self.luxury_lab.config(text=str(nameDict[name].get_luxury()))
-            self.balance_lab.config(text="$"+str(nameDict[name].get_balance()))
+            self.balance_lab.config(text="$"+str(nameDict[name].get_balance()), font = ('Times', '20', 'bold'))
             if nameDict[name].alive:
-                self.status_lab.config(text = "Wow, you're doing great!")
+                self.status_lab.config(text = "Wow, you're doing great!", font = ('Arial', 30, "bold italic"))
                 self.button2.config(state="normal", text="Goods and Services")
             else:
-                self.status_lab.config(text = "Oh no! You are dead!")
+                self.status_lab.config(text = "Oh no! You are dead!", font = ("Times", "40", "bold italic") , fg='red')
                 self.button2.config(state = "disabled", text = "No more shopping for you!")
             if nameDict[name].get_health()<50:
-                self.health_lab.config(fg = "red")
+                self.health_lab.config(font = ("Times", "35"), fg = "red")
             elif 50<=nameDict[name].get_health()<75:
-                self.health_lab.config(fg= "brown")
+                self.health_lab.config(font = ("Times", "35"), fg= "brown")
             else:
-                self.health_lab.config(fg="green")
+                self.health_lab.config(font = ("Times", "35"), fg="green")
             if nameDict[name].get_entertainment()<30:
-                self.entertainment_lab.config(fg = "red")
+                self.entertainment_lab.config(font = ("Times", "35"), fg = "red")
             elif 30<=nameDict[name].get_entertainment()<65:
-                self.entertainment_lab.config(fg= "brown")
+                self.entertainment_lab.config(font = ("Times", "35"), fg= "brown")
             else:
-                self.entertainment_lab.config(fg="green")
+                self.entertainment_lab.config(font = ("Times", "35"), fg="green")
             if nameDict[name].get_food()<40:
-                self.food_lab.config(fg = "red")
+                self.food_lab.config(font = ("Times", "35"), fg = "red")
             elif 40<=nameDict[name].get_food()<70:
-                self.food_lab.config(fg= "brown")
+                self.food_lab.config(font = ("Times", "35"), fg= "brown")
             else:
-                self.food_lab.config(fg="green")
+                self.food_lab.config(font = ("Times", "35"), fg="green")
             if nameDict[name].get_luxury()<5:
-                self.luxury_lab.config(fg = "red")
+                self.luxury_lab.config(font = ("Times", "35"), fg = "red")
             elif 5<=nameDict[name].get_luxury()<20:
-                self.luxury_lab.config(fg= "brown")
+                self.luxury_lab.config(font = ("Times", "35"), fg= "brown")
             else:
-                self.luxury_lab.config(fg="green")
+                self.luxury_lab.config(font = ("Times", "35"), fg="green")
 
     # def advance(self):
     #     self.val.set(8)
@@ -236,18 +237,50 @@ class PageTwo(tk.Frame):
         self.pic_6 = tk.Button(self, image=fast_food_photo, text="OK", command=lambda: show_page_one(.8, 1.05, 1.1, 1, -100))
         self.pic_7 = tk.Button(self, image=theme_park_photo, text="OK", command=lambda: show_page_one(.9, 1.12, 1.05, 1, -100))
         self.pic_8 = tk.Button(self, image=yoga_photo, text="OK", command=lambda: show_page_one(1.15, 1.05, 0.95, 1, -100))
-        self.pic_1.pack(side = LEFT)
-        self.pic_2.pack(side = RIGHT)
-        self.pic_3.pack(side = BOTTOM)
-        self.pic_4.pack(side = TOP)
-        self.pic_5.pack(side = LEFT)
-        self.pic_6.pack(side = RIGHT)
-        self.pic_7.pack(side = BOTTOM)
-        self.pic_8.pack(side = TOP)
+        tk.Label(self,
+                 text='Apple: $50, Car: $700, Doctor: $100, Treadmill: $75, Cellphone: $300, Fast Food: $100, Theme Park: $100, Yoga: $100',
+                 anchor='w', fg="black").pack(fill='both')
+        self.pic_1.pack(pady = 5)
+        self.pic_2.pack(pady = 5)
+        self.pic_3.pack(pady = 5)
+        self.pic_4.pack(pady = 5)
+        self.pic_5.pack(pady = 5)
+        self.pic_6.pack(pady = 5)
+        self.pic_7.pack(pady = 5)
+        self.pic_8.pack(pady = 5)
 class PageThree(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
+        self.controller = controller
         label = tk.Label(self, text="Read the Latest Financial Stories", font=controller.title_font)
+        label.pack(side="top", fill="x", pady=10)
+        subhead = tk.Label(self, text="Articles")
+        subhead.pack(side="top", fill="x", pady=10)
+        def callback1(event):
+            webbrowser.open_new(r"https://www.google.com/url?q=https://www.tc.columbia.edu/articles/2010/february/teaching-kids-about-the-national-debt/&sa=D&source=hangouts&ust=1554091157827000&usg=AFQjCNEU6sqJdA_IXwDNmRHXFbGps-qWGA")
+        def callback2(event):
+            webbrowser.open_new(r"https://www.usa.gov/before-you-shop")
+        def callback3(event):
+            webbrowser.open_new(r"https://www.usa.gov/currency")
+        link1 = tk.Label(self, text="Teaching Kids about National Debt",fg = "blue", cursor="hand2")
+        link1.pack()
+        link1.bind("<Button-1>", callback1)
+        link2 = tk.Label(self, text="Before You Shop...", fg="blue", cursor="hand2")
+        link2.pack()
+        link2.bind("<Button-1>", callback2)
+        link3 = tk.Label(self, text="United States Currency", fg="blue", cursor="hand2")
+        link3.pack()
+        link3.bind("<Button-1>", callback3)
+        self.button = tk.Button(self, text="Go to the start page",
+                                command=lambda: self.controller.show_frame("StartPage"))
+        self.button.pack()
+        # subhead2 = tk.Label(self, text="Audio Learning")
+        # subhead2.pack(side="top", fill="x", pady=10)
+        # song = AudioSegment.from_mp3("output1.mp3")
+        #
+        # play = lambda: song.play()
+        # button = Button(self, text='Play', command=play)
+
 
 if __name__ == "__main__":
     app = LAHacks2019()
